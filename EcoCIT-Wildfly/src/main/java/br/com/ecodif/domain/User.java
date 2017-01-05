@@ -96,6 +96,20 @@ public class User {
 	
 	private String role;
 	
+	//campo criado apenas pra satisfazer a consulta do JaaS
+	private String roles;
+	
+	
+	
+	
+	public String getRoles() {
+		return roles;
+	}
+
+	public void setRoles(String roles) {
+		this.roles = roles;
+	}
+
 	/**
 	 * Retorna o identificador do usu�rio
 	 * @return Identificado do usu�rio
