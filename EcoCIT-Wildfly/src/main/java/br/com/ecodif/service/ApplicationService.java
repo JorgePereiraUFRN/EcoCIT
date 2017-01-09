@@ -3,6 +3,7 @@ package br.com.ecodif.service;
 import java.util.List;
 import java.util.Set;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import br.com.ecodif.dao.ApplicationDAO;
@@ -11,6 +12,7 @@ import br.com.ecodif.domain.Application;
 import br.com.ecodif.domain.User;
 import br.com.ecodif.searchcriteria.ApplicationSearchCriteria;
 
+@Stateless
 public class ApplicationService {
 
 	@Inject

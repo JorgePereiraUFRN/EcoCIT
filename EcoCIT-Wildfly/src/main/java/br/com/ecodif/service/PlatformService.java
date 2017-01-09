@@ -1,11 +1,12 @@
 package br.com.ecodif.service;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import br.com.ecodif.dao.PlatformDAO;
 import br.com.ecodif.domain.Platform;
 
-
+@Stateless
 public class PlatformService {
 
 

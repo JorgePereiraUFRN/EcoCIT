@@ -14,6 +14,14 @@ public class WSServico extends Application {
  
 	public WSServico() {
 		singletons.add(new ApplicationResource());
+		singletons.add(new EemlResource());
+		singletons.add(new ConnectedDeviceResource());
+		singletons.add(new DeviceResource());
+		singletons.add(new EnvironmentResource());
+		singletons.add(new PlatformResource());
+		singletons.add(new SensorResource());
+		singletons.add(new UnitResource());
+		singletons.add(new UserResource());
 		
 	}
  

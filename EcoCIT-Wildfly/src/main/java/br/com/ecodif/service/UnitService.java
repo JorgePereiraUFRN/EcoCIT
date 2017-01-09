@@ -2,11 +2,13 @@ package br.com.ecodif.service;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import br.com.ecodif.domain.Unit;
 import br.com.ecodif.framework.EemlManager;
 
+@Stateless
 public class UnitService {
 
 

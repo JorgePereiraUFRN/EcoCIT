@@ -1,5 +1,6 @@
 package br.com.ecodif.domain;
 
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import javax.persistence.Column;
@@ -35,7 +36,7 @@ public class CurrentValue {
 	@Column(name="iddb")
 	private int iddb;
 	private String value;
-	private GregorianCalendar at;
+	private Date at;
 	
 	/**
 	 * Retorna o identificador do objeto na base de dados
@@ -74,7 +75,7 @@ public class CurrentValue {
 	 * Retorna a data/hora da leitura do valor
 	 * @return at Data/hora da leitura do valor
 	 */
-	public GregorianCalendar getAt() {
+	public Date getAt() {
 		return at;
 	}
 
@@ -82,7 +83,7 @@ public class CurrentValue {
 	 * Modifica a data/hora da leitura do valor
 	 * @param at Data/hora para altera��o
 	 */
-	public void setAt(GregorianCalendar at) {
+	public void setAt(Date at) {
 		this.at = at;
 	}
 }

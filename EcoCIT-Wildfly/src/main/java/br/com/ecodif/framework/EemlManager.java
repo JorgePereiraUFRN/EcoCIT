@@ -150,7 +150,7 @@ public class EemlManager {
 	 */
 	public Eeml eemlContractToDomain(Eeml_Contract contract) {
 		Eeml eemlDomain = new Eeml();
-		System.out.println("@@@@@@@@ 2");
+		System.out.println("@@@@@@@@ 2"+eemlDomain == null);
 		eemlDomain.setVersion(contract.getVersion());
 
 		/************ Environments *************/
@@ -209,7 +209,7 @@ public class EemlManager {
 
 							if (d.getCurrentValue().getAt() != null) {
 								currentValue.setAt(d.getCurrentValue().getAt()
-										.toGregorianCalendar());
+										.toGregorianCalendar().getTime());
 							}
 							data.setTag(domainDataTags);
 							data.setCurrentValue(currentValue);
@@ -343,9 +343,13 @@ public class EemlManager {
 									.getValue());
 
 							if (d.getCurrentValue().getAt() != null) {
+								
+								GregorianCalendar cal = new GregorianCalendar();
+								cal.setTime(d.getCurrentValue().getAt());
+								
 								XMLGregorianCalendar xgcald = DatatypeFactory
-										.newInstance().newXMLGregorianCalendar(
-												d.getCurrentValue().getAt());
+										.newInstance().newXMLGregorianCalendar(cal);
+								
 								currentValue.setAt(xgcald);
 							}
 							dataContract.setCurrentValue(currentValue);
@@ -606,7 +610,10 @@ public class EemlManager {
 	 * @return objeto do tipo Data
 	 */
 	public Data findDataWithDatapoints(int id) {
-		String jpql = "Select d From Data d left join fetch d.datapoints WHERE d.iddb = :iddb";
+		
+		
+		//String jpql = "Select d From Data d left join fetch d.datapoints WHERE d.iddb = :iddb";
+		String jpql = "Select d From Data d  WHERE d.iddb = :iddb";
 		Query query = this.manager.createQuery(jpql);
 		query.setParameter("iddb", id);
 		return (Data) query.getSingleResult();

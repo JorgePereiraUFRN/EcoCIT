@@ -6,8 +6,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import javax.ejb.Stateless;
+
 import org.apache.commons.io.FileUtils;
 
+@Stateless
 public class FileHelper {
 
 	/**

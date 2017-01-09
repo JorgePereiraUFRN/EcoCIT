@@ -2,6 +2,7 @@ package br.com.ecodif.service;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import br.com.ecodif.dao.ConnectedDeviceDAO;
@@ -11,6 +12,7 @@ import br.com.ecodif.domain.ConnectedDevice;
 import br.com.ecodif.domain.Device;
 import br.com.ecodif.domain.Platform;
 
+@Stateless
 public class DeviceService {
 	
 	@Inject

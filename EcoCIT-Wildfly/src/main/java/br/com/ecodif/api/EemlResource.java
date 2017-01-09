@@ -7,6 +7,8 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
+
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -15,6 +17,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
+
 import br.com.ecodif.dao.ConnectedDeviceDAO;
 import br.com.ecodif.dao.DeviceDAO;
 import br.com.ecodif.dao.SensorDAO;
@@ -39,7 +42,7 @@ import br.com.ecodif.framework.SendMail;
 import br.com.ecodif.framework.SendNotification;
 
 /**
- * Classe responsável pela API da EcoDiF
+ * Classe responsï¿½vel pela API da EcoDiF
  * @author Bruno Costa
  *
  */
@@ -47,7 +50,7 @@ import br.com.ecodif.framework.SendNotification;
 public class EemlResource {
 
 	@Inject
-	EemlManager eemlManager;
+	EemlManager eemlManager = new EemlManager();
 
 	@Inject
 	UserDAO userDAO;
@@ -70,6 +73,7 @@ public class EemlResource {
 	private static final String API_KEY = "AIzaSyALvVoCJkkqr_a8TuXPmrXAW4c7iptWmj0";
 	private static final String DEVICE_ID = "APA91bEZAJGuBzvD-2RLgc-AoCfKt5MudQVxDm4Q7zoKEIduMV5-uNpq7RwtbM2m5c_muIVCIrBblIN_5isU9T0GFAJlYCa3eTLq79-JphdK4OAcKpBF3WoDNAMzk7r2O1AUx6SmEk6LpoW9OC2mkJkRuhJxIbCgYva6egu3jBG-gm-DPe3TWY0";
 
+	
 	/**
 	 * <p>
 	 * <b>Create a feed</b>
@@ -113,6 +117,10 @@ public class EemlResource {
 			@PathParam("dataid") String dataid) {
 
 		try {
+
+			//TODO remover isso depois (a injeÃ§Ã£o de dependencias tem q funcionar)
+			//eemlManager = new EemlManager();
+			
 			Eeml eemlReceived = eemlManager.eemlContractToDomain(contract_eeml);
 
 			Datapoints dataPoints = new Datapoints();
@@ -128,7 +136,7 @@ public class EemlResource {
 			cal.setTimeZone(TimeZone.getTimeZone("GMT-3"));
 
 			value.setAt(cal);
-			currValue.setAt(cal);
+			currValue.setAt(cal.getTime());
 
 			dataPoints.getValue().add(value);
 
@@ -174,7 +182,7 @@ public class EemlResource {
 					sendmail.setSender("EcoDiF_API");
 					sendmail.setReceiver(trigger.getEmail());
 					sendmail.setSubject("Trigger EcoDiF - " + environmentName);
-					sendmail.setMessageMail("  ---- Esta é uma mensagem automática ----- \n"
+					sendmail.setMessageMail("  ---- Esta ï¿½ uma mensagem automï¿½tica ----- \n"
 							+ "Feed: "
 							+ environmentName
 							+ "\n"

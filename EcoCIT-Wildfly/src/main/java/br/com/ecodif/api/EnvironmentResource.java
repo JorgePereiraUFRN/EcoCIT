@@ -181,7 +181,7 @@ public class EnvironmentResource extends OwnerHelper {
 			cal.setTimeZone(TimeZone.getTimeZone("GMT-3"));
 
 			value.setAt(cal);
-			currValue.setAt(cal);
+			currValue.setAt(cal.getTime());
 
 			dataPoints.getValue().add(value);
 

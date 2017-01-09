@@ -3,6 +3,7 @@ package br.com.ecodif.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.xml.datatype.DatatypeConfigurationException;
 
@@ -17,6 +18,7 @@ import br.com.ecodif.eeml_contract.Eeml_Contract;
 import br.com.ecodif.framework.EemlManager;
 import br.com.ecodif.searchcriteria.EnvironmentSearchCriteria;
 
+@Stateless
 public class EnvironmentService {
 
 	@Inject

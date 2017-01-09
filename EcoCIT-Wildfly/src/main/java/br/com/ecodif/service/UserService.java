@@ -1,5 +1,6 @@
 package br.com.ecodif.service;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import br.com.ecodif.dao.UserDAO;
@@ -7,6 +8,7 @@ import br.com.ecodif.dao.UserTypeDAO;
 import br.com.ecodif.domain.User;
 import br.com.ecodif.domain.UserType;
 
+@Stateless
 public class UserService {
 
 	
